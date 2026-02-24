@@ -1,9 +1,17 @@
 from rest_framework import serializers
-from .models import Expense
+from .models import Expense, Income
 
 class ExpenseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Expense
-        # These are the fields we want to show in the API
-        fields = ['id', 'user', 'account', 'amount', 'description', 'category', 'date']
-        read_only_fields = ['user', 'date']
+        fields = '__all__'
+
+    def validate_amount(self, value):
+        if value <= 0:
+            raise serializers.ValidationError("Amount must be greater than zero.")
+        return value
+
+class IncomeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Income
+        fields = '__all__'
