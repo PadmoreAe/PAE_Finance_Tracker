@@ -17,7 +17,7 @@ class ExpenseViewSet(viewsets.ModelViewSet):
     serializer_class = ExpenseSerializer
     permission_classes = [permissions.IsAuthenticated, IsOwner]
     #serializer class
-    queryset = Expense.objects.all()
+    queryset = Expense.objects.all().order_by('-date')
     serializer_class = ExpenseSerializer
 
     def get_queryset(self): # set user sees only their acc
@@ -29,7 +29,7 @@ class ExpenseViewSet(viewsets.ModelViewSet):
 
 #serializer class
 class IncomeViewSet(viewsets.ModelViewSet):
-    queryset = Income.objects.all()
+    queryset = Income.objects.all().order_by('-date')
     serializer_class = IncomeSerializer
 
 
