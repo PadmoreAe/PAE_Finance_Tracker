@@ -18,17 +18,22 @@ from django.contrib import admin
 from django.urls import path, include
 from expenses.views import TotalBalanceView
 from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView,)
+from django.views.generic import RedirectView
+from django.http import JsonResponse
+
+def home(request):
+    return JsonResponse({"message": "Welcome to PAE Finance API"})
 
 urlpatterns = [
+    path('', home),
     path('admin/', admin.site.urls),
     path('api/balance/total/', TotalBalanceView.as_view(), name='total-balance'),
+    path('', RedirectView.as_view(url='/api/', permanent=False)),
 
     path('api/', include('expenses.urls')), # This connects serializer API
-    
+
     # The login endpoint (Username/Password -> Token)
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     # The refresh endpoint (Get a new access token)
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-
-    path('api/', include('expenses.urls')),
 ]
