@@ -39,10 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
+    'social',
     'rest_framework', # For our API later
     'expenses',
     'rest_framework_simplejwt',
     'accounts',
+    'budgets',
 ]
 
 MIDDLEWARE = [

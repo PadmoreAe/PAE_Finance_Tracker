@@ -32,3 +32,4 @@ PAE Finance Tracker is a robust Backend API. It's built with Django and Django R
    python manage.py migrate
 5. **Run the Server**
    python manage.py runserver
+
