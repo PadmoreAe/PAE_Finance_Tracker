@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -146,3 +147,26 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
+
+
+
+
+#Install theme for Django
+JAZZMIN_SETTINGS = {
+    "site_title": "PAE Finance",
+    "site_header": "PAE Finance Tracker",
+    "site_brand": "PAE Finance",
+    "welcome_sign": "Welcome to PAE Finance Tracker",
+    "copyright": "Padmore Aduseiening",
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "icons": {
+        "accounts.Account": "fas fa-university",
+        "expenses.Expense": "fas fa-minus-circle",
+        "expenses.Income": "fas fa-plus-circle",
+        "budgets.Budget": "fas fa-wallet",
+        "budgets.SavingsGoal": "fas fa-piggy-bank",
+        "social.TransactionRequest": "fas fa-exchange-alt",
+        "users.User": "fas fa-users",
+    },
+}
